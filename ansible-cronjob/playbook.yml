@@ -1,0 +1,7 @@
+---
+- name: Deploy cron job on remote servers
+  hosts: servers
+  become: yes
+  roles:
+    - cronjob
+

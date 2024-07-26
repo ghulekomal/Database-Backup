@@ -1,0 +1,15 @@
+---
+- name: Copy the script to the remote server
+  copy:
+    src: myscript.sh
+    dest: /usr/local/bin/myscript.sh
+    mode: '0755'
+
+- name: Ensure cron job is present
+  cron:
+    name: "Run my script daily at midnight"
+    minute: "0"
+    hour: "0"
+    job: "/usr/local/bin/myscript.sh"
+    state: present
+
